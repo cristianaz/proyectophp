@@ -1,0 +1,46 @@
+{% extends "/tema/tema.html.twig" %}
+{% block title %}
+Productos
+{% endblock %}
+
+{% block subtitle %}
+Formualario para productos
+{% endblock %}
+
+
+{% block content %}
+
+
+<form id="frm-producto" action="?c=productos&a=Guardar" method="post" enctype="multipart/form-data">
+    <input type="hidden" name="id" value="{{producto.id}}" />
+      <div class="form-group">
+        <label>Nombre</label>
+        <input type="text" name="nombre" value="{{producto.nombre}}" class="form-control" placeholder="Ingrese nombre" required>
+    </div>
+    
+    <div class="form-group">
+        <label>Precio</label>
+        <input type="text" name="precio" value="{{producto.precio}}" class="form-control" placeholder="Ingrese precio" required>
+    </div>
+    
+    <div class="form-group">
+        <label>Existencia</label>
+        <input type="text" name="existencia" value="{{producto.existencia}}" class="form-control" placeholder="Ingrese existencia" required>
+    </div>
+    
+    <hr />
+    
+    <div class="text-right">
+        <button class="btn btn-primary">Guardar</button>
+    </div>
+</form>
+
+<script>
+    $(document).ready(function(){
+        $("#frm-producto").submit(function(){
+            return $(this).validate();
+        });
+    });
+</script>
+
+{% endblock %}

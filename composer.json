@@ -1,0 +1,25 @@
+{
+    "name": "ferdin/proyecto-itics",
+    "description": "\"Proyecto curso php\"",
+    "type": "project",
+    "license": "MIT",
+    "require": {
+        "illuminate/database": "5.1.8",
+        "twig/twig": "^3.0",
+        "plasticbrain/php-flash-messages": "^1.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Controllers\\": "controller/",
+            "Models\\": "model/"
+        }
+    },
+    "config": {
+        "allow-plugins": {
+            "kylekatarnls/update-helper": true
+        }
+    },
+    "require-dev": {
+        "composer/composer": "^2.2"
+    }
+}

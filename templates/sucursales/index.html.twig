@@ -1,0 +1,47 @@
+{% extends "/tema/tema.html.twig" %}
+{% block title %}
+Sucursales
+{% endblock %}
+
+{% block subtitle %}
+Lista de todas las sucursales
+{% endblock %}
+
+
+{% block content %}
+   <a class="btn btn-primary pull-right" href="?c=sucursales&a=Crud">Agregar</a>
+   <br>
+<hr>
+<table class="table  table-striped  table-hover" id="tabla">
+    <thead>
+        <tr>
+        <th style="width:60px; background-color: #5DACCD; color:#fff">ID</th>
+            <th style="width:250px; background-color: #5DACCD; color:#fff">Nombre Local</th>
+            <th style=" width:60px; background-color: #5DACCD; color:#fff">Dirección</th>
+            <th style=" width:60px; background-color: #5DACCD; color:#fff">Encargado</th>           
+            <th style="width:60px; background-color: #5DACCD; color:#fff"></th>
+            <th style="width:60px; background-color: #5DACCD; color:#fff"></th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for sucursal in sucursales %}
+        
+        <tr>
+            <td>{{sucursal.id}}</td>
+            <td>{{sucursal.nombre}}</td>
+            <td>{{sucursal.direccion}}</td>
+            <td>{{sucursal.encargado}}</td>
+          
+
+            <td>
+                <a  class="btn btn-warning" href="?c=sucursales&a=Crud&id= {{sucursal.id}}">Editar</a>
+            </td>
+            <td>
+                <a  class="btn btn-danger" onclick="javascript:return confirm('¿Seguro de eliminar este registro?');" href="?c=sucursales&a=Eliminar&id={{sucursal.id}}">Eliminar</a>
+            </td>
+        </tr>
+        
+        {% endfor %}
+    </tbody>
+</table> 
+{% endblock %}

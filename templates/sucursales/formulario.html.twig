@@ -1,0 +1,46 @@
+{% extends "/tema/tema.html.twig" %}
+{% block title %}
+Sucursales
+{% endblock %}
+
+{% block subtitle %}
+Formualario para sucursales
+{% endblock %}
+
+
+{% block content %}
+
+
+<form id="frm-sucursal" action="?c=sucursales&a=Guardar" method="post" enctype="multipart/form-data">
+    <input type="hidden" name="id" value="{{sucursal.id}}" />
+      <div class="form-group">
+        <label>Nombre</label>
+        <input type="text" name="nombre" value="{{sucursal.nombre}}" class="form-control" placeholder="Ingrese nombre" required>
+    </div>
+    
+    <div class="form-group">
+        <label>Dirección</label>
+        <input type="text" name="direccion" value="{{sucursal.direccion}}" class="form-control" placeholder="Ingrese dirección" required>
+    </div>
+    
+    <div class="form-group">
+        <label>Encargado</label>
+        <input type="text" name="encargado" value="{{sucursal.encargado}}" class="form-control" placeholder="Ingrese encargado" required>
+    </div>
+    
+    <hr />
+    
+    <div class="text-right">
+        <button class="btn btn-primary">Guardar</button>
+    </div>
+</form>
+
+<script>
+    $(document).ready(function(){
+        $("#frm-sucursal").submit(function(){
+            return $(this).validate();
+        });
+    });
+</script>
+
+{% endblock %}
